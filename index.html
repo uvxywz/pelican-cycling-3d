@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>鹈鹕的自由骑行 · 3D</title>
+<link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+<canvas id="view" tabindex="0" aria-label="鹈鹕自由骑行三维场景；每按一次侧向方向键转45度，反向键或R键顺时针调头，空格暂停"></canvas>
+<header><small>PELICAN CYCLING CLUB / FREE RIDE</small><h1>去哪里，都可以。</h1><p>一只小鹈鹕，一片没有终点的原野。<br>转个方向，继续兜风。</p><div class="pill"><span class="dot"></span>自由骑行 · 3D</div></header>
+<aside class="map-card glass" aria-label="北向朝上的骑行地图"><div class="map-title"><span>骑行地图</span><span>北 ↑</span></div><canvas id="map" width="288" height="248"></canvas><div class="coords"><span id="east">东 0.0 m</span><span id="north">北 0.0 m</span></div></aside>
+<div class="hint">侧向按一次转 45° · 反向顺时针调头<br>同向保持直行 · 长按不连续转向<br>拖动视角 · 滚轮缩放</div>
+<div class="panel glass"><button class="action" id="play" type="button">暂停</button><label class="speed-label" for="speed">速度 <input id="speed" type="range" min="0.3" max="2" step="0.1" value="1"><output id="speed-value" for="speed">1.0×</output></label><button class="action secondary" id="reset" type="button">重置视角</button></div>
+<aside class="steering glass" aria-label="八方向骑行轮盘"><div class="steering-title"><span>方向轮盘</span><strong id="direction">目标 东</strong></div><div class="dial" role="group" aria-label="朝所选方位转45度，选择相反方位顺时针调头">
+<button class="dir" data-dir="n" style="--x:0px;--y:-80px" aria-label="北，上方向键" type="button">北</button>
+<button class="dir" data-dir="ne" style="--x:57px;--y:-57px" aria-label="东北，上加右方向键" type="button">东北</button>
+<button class="dir active" data-dir="e" style="--x:80px;--y:0px" aria-label="东，右方向键" type="button">东</button>
+<button class="dir" data-dir="se" style="--x:57px;--y:57px" aria-label="东南，下加右方向键" type="button">东南</button>
+<button class="dir" data-dir="s" style="--x:0px;--y:80px" aria-label="南，下方向键" type="button">南</button>
+<button class="dir" data-dir="sw" style="--x:-57px;--y:57px" aria-label="西南，下加左方向键" type="button">西南</button>
+<button class="dir" data-dir="w" style="--x:-80px;--y:0px" aria-label="西，左方向键" type="button">西</button>
+<button class="dir" data-dir="nw" style="--x:-57px;--y:-57px" aria-label="西北，上加左方向键" type="button">西北</button>
+<div class="needle-wrap"><div id="needle" class="needle"></div><div class="hub"></div></div></div>
+<button id="uturn" class="turn" type="button" aria-label="顺时针调头180度，快捷键 R"><span>↶ 顺时针调头 180°</span><kbd class="key">R</kbd></button><p class="help">↑ 北 · ↓ 南 · ← 西 · → 东<br>侧向转 45°，反向转 180°；双键可组合</p></aside>
+<div id="paused" class="pause-state" hidden>已暂停 · 空格键继续</div><p id="error" hidden></p>
+<script src="src/main.js"></script>
+</body>
+</html>

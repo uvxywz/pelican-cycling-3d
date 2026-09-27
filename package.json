@@ -1,0 +1,12 @@
+{
+  "name": "pelican-cycling-3d",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A dependency-free interactive 3D pelican cycling playground.",
+  "scripts": {
+    "test": "node tests/behavior.test.cjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
